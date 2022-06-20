@@ -4,7 +4,7 @@ const signup = async (req, res) => {
   const { email, password, subscription } = req.body;
   const user = await User.findOne({ email });
   if (user) {
-    throw new Conflict({ code: 409, message: "Email in use" });
+    throw new Conflict("Email in use");
   }
   const newUser = new User({ email });
   newUser.setPassword(password);
