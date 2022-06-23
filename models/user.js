@@ -12,10 +12,6 @@ const userSchema = Schema(
       required: [true, "Email is required"],
       unique: true,
     },
-    avatarURL: {
-      type: String,
-      required: true,
-    },
     subscription: {
       type: String,
       enum: ["starter", "pro", "business"],
@@ -24,6 +20,10 @@ const userSchema = Schema(
     token: {
       type: String,
       default: null,
+    },
+    avatarURL: {
+      type: String,
+      required: true,
     },
   },
   { versionKey: false, timestamps: true }
