@@ -5,6 +5,7 @@ const {
   joiRegisterSchema,
   joiLoginSchema,
   joiSubscriptionSchema,
+  joiEmailSchema,
 } = require("../../models/user");
 const router = express.Router();
 router.post("/signup", validation(joiRegisterSchema), ctrlWrapper(ctrl.signup));
@@ -18,5 +19,5 @@ router.patch(
   ctrlWrapper(ctrl.updateSubscription)
 );
 router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
-router.post("/verify/", ctrlWrapper(ctrl.resent));
+router.post("/verify/", validation(joiEmailSchema), ctrlWrapper(ctrl.resent));
 module.exports = router;
