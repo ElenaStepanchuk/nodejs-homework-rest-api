@@ -17,4 +17,6 @@ router.patch(
   validation(joiSubscriptionSchema),
   ctrlWrapper(ctrl.updateSubscription)
 );
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
+router.post("/verify", ctrlWrapper(ctrl.resent));
 module.exports = router;
