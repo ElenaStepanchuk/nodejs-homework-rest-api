@@ -1,6 +1,5 @@
 const { User } = require("../../models");
 const { NotFound } = require("http-errors");
-
 const veryfyEmail = async (req, res) => {
   const { verificationToken } = req.params;
   const user = await User.findOne({ verificationToken });
